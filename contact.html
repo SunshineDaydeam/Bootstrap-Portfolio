@@ -30,7 +30,7 @@
         }
 
         .imageSize60 {
-            width:60px;
+            width:40px;
         }
 
         .container-fluid {
@@ -64,6 +64,22 @@
             background-color: #777777;
             color: white;
         }
+
+        ::-webkit-input-placeholder {
+            font-style:italic;
+        }
+
+        :-moz-placeholder { /* Firefox 18- */
+            font-style:italic;
+        }
+
+::-moz-placeholder {  /* Firefox 19+ */
+    font-style:italic;
+}
+
+:-ms-input-placeholder {
+      font-style:italic;
+}
 
     </style>
 
@@ -99,7 +115,7 @@
 <div class="container">        
 
     <div class="row">
-        <div class="col-sm-12 col-md-12 col-lg-8 mt-3">
+        <div class="col-sm-12 col-md-8 col-lg-8 mt-3">
 
             <div class="card">
                 <div class="row">
@@ -109,17 +125,19 @@
 
                     <div class="col-md-12 pl-5 pr-5 pb-3">                        
                         <div class="form-group">
-                            <label for="usr">Name:</label>
-                            <input type="text" class="form-control" id="usr">
+                            <label for="user_name">Name:</label>
+                            <input type="text" class="form-control bg-light" id="user_name" placeholder="Your name...">
+
                         </div>
                         <div class="form-group">
-                            <label for="pwd">Email:</label>
-                            <input type="password" class="form-control" id="pwd">
+                            <label for="user_email">Email:</label>
+                            <input type="password" class="form-control bg-light" id="user_email" placeholder="Your email address...">
                         </div>
                         <div class="form-group">
-                            <label for="comment">Message:</label>
-                            <textarea class="form-control" rows="5" id="comment"></textarea>
-                        </div>                        
+                            <label for="user_message">Message:</label>
+                            <textarea class="form-control bg-light" rows="5" id="user_message" placeholder="Enter your message to me here..."></textarea>
+                        </div>
+                        <button type="button" class="btn btn-primary">Submit</button>                       
                     </div>
 
                 </div>
@@ -129,7 +147,7 @@
 
     <!--Link Section-->
         
-        <div class="col-sm-12 col-md-12 col-lg-4 mt-3">
+        <div class="col-sm-12 col-md-4 col-lg-4 mt-3">
             <div class="card">
                 <div class="row">
                     <div class="col-md-12">
@@ -138,10 +156,10 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 p-3 ml-3">
-                        <a href = "http://www.github.com" target="_blank"><img src="images/github.png" class="imageSize60 pl-1 pb-3" width="128px"></a>
-                        <a href = "http://www.linkedin.com" target="_blank"><img src="images/linkedin.png" class="imageSize60 pl-1 pb-3" width=128px" icon"></a>
-                        <a href = "http://www.github.com" target="_blank"><img src="images/stack_red.png" class="imageSize60 pl-1 pb-3" width="128px"></a>
-                
+                        <a href = "https://sunshinedaydeam.github.io/Responsive-Portfolio/" target="_blank"><img src="images/github.png" class="imageSize60 pl-1 pb-3" width="128px"></a>
+                        <a href = "https://www.linkedin.com/in/alex-bruner-366348155/" target="_blank"><img src="images/linkedin.png" class="imageSize60 pl-1 pb-3" width=128px" icon"></a>
+                        <a href = "https://stackoverflow.com/users/9510977/alex-bruner" target="_blank"><img src="images/stack_red.png" class="imageSize60 pl-1 pb-3" width="128px"></a>
+                        <a href = "https://www.facebook.com/alex.d.bruner" target="_blank"><img src="images/social-facebook-box-blue-icon.png" class="imageSize60 pl-1 pb-3" width="128px"></a>
                     </div>
                 </div>
             </div>
