@@ -1,0 +1,205 @@
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Random Number Generators</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+        .container {
+            max-width: 960px;
+        }
+
+        a:link {color: white; text-decoration: none;}
+        a:visited {color: white; text-decoration: none;}
+        a:hover {color: black; text-decoration: none;}
+        a:active {color: white; text-decoration: none;}
+    </style>
+</head>
+<body class="bg-secondary">
+<nav class="nav navbar bg-dark p-3 justify-content-center">
+    <h1 class="text-white ">Random Number Generators</h1>
+</nav>
+<nav class="nav navbar justify-content-center bg-danger pt-1 pb-1">
+    <div class="text-dark">
+        <span>
+            <a href="https://sunshinedaydeam.github.io/Bootstrap-Portfolio/index.html">About Me &nbsp </a>
+            <a href="https://sunshinedaydeam.github.io/Bootstrap-Portfolio/games.html">&nbsp My Portfolio &nbsp </a>
+            <a href="https://sunshinedaydeam.github.io/Bootstrap-Portfolio/contact.html"> &nbsp Contact Me</a>
+        </span>
+    </div>
+</nav>  
+<div class="container">
+    
+    <!--Powerball Generator-->
+    <div class="row">
+        <div class="col-sm-12 col-md-6 mt-3">
+            <div class="card text-center">
+                <h4 class="pt-3 text-dark"><span class="text-danger">Powerball</span> Generator</h4>
+                <p class="text-muted font-italic mb-0">Possible Answers: <span class="text-danger">34,001,610,240</span></p>
+                <h4 class = "pt-3 pb-3">
+                    <span class="text-dark" id="lottery1"></span>&nbsp &nbsp
+                    <span class="text-dark" id="lottery2"></span>&nbsp &nbsp
+                    <span class="text-dark" id="lottery3"></span>&nbsp &nbsp
+                    <span class="text-dark" id="lottery4"></span>&nbsp &nbsp
+                    <span class="text-dark" id="lottery5"></span>&nbsp &nbsp
+                    <span class = "text-danger border border-danger bg-white p-1" id = "lottery6"></span>
+                </h4>
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <button class="btn btn-danger p-3 mt-3 mb-3" id ="powerballReset"> RESET POWERBALL NUMBERS</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+        <!--Mega Millions Generator-->
+        <div class="col-sm-12 col-md-6 mt-3">
+            <div class="card text-center">
+                <h4 class="pt-3 text-dark"><span class="text-danger">Mega Millions</span> Generator</h4>
+                <p class="text-muted font-italic mb-0">Possible Answers: <span class="text-danger">36,309,042,000</span></p>
+                <h4 class = "pt-3 pb-3">
+                    <span class="text-dark" id="mega1"></span>&nbsp &nbsp
+                    <span class="text-dark" id="mega2"></span>&nbsp &nbsp
+                    <span class="text-dark" id="mega3"></span>&nbsp &nbsp
+                    <span class="text-dark" id="mega4"></span>&nbsp &nbsp
+                    <span class="text-dark" id="mega5"></span>&nbsp &nbsp 
+                    <span class = "text-danger border border-danger bg-white p-1" id = "mega6"></span>
+                </h4>
+            <div class="row">
+                <div class="col-sm-12 text-center">
+                    <button class="btn btn-danger p-3 mt-3 mb-3" id ="megaReset">RESET MEGA MILLIONS NUMBERS</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--Random 9-Digit Non-Repeating Number-->
+        <div class="col-sm-12 col-md-6 mt-3">
+            <div class="card text-center">
+                <h4 class="pt-3"><span class="text-danger">9-Digit Number</span> Generator</h4>
+                <p class = "text-muted font-italic mb-0">Each digit is unique</p>
+                <h3 class = "pt-3 pb-3"><span class="text-dark" id="randNumber"></span></h3>
+                <div class="row">
+                    <div class="col-sm-12 text-center">
+                        <button class="btn btn-danger p-3 mt-3 mb-3" id ="randNumberReset"> RESET 9-DIGIT NUMBERS</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    
+<footer class="footer text-center pt-5 pb-2 mt-5 bg-dark">
+    <p class="text-white mb-0">Coded By Alex Bruner</p>
+    <p class="text-muted mt-0">Copywrite 2018</p>
+</footer>
+     
+
+    <script>
+
+
+        ////////////////////////////////////////////////////
+        //       9-Digit Random Non-Repeating Number      //
+        ////////////////////////////////////////////////////
+
+
+        //function 9 digit random Number-Non Repeating
+        function randomNumbers9(){
+            var line1 = [];
+            var usedNums =["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+            var randomNumber=null;
+
+            for (i=0; i<9; i++){
+                randomNumber = usedNums[Math.floor(Math.random() * usedNums.length)]
+                usedNums.splice ((usedNums.indexOf(randomNumber)), 1);
+                line1.push(randomNumber);}
+            $("#randNumber").text (line1.join(" "));
+        }
+        
+        //run 9 digit random Number-Non Repeating function when page is loaded
+        randomNumbers9();
+
+        $("#randNumberReset").click(function(){
+            randomNumbers9();
+        });
+        
+
+        /////////////////////////////////////////////////////
+        //                    POWERBALL                    //    
+        /////////////////////////////////////////////////////
+
+
+        //generate a powerball number
+        function powerball(){
+            
+            var redBall = Math.floor(Math.random() * 26)+1; //Red Ball
+            var usedNums =[];                               //previous numbers to make sure number is not repeated
+                for (var i = 1; i <= 69; i++) {                 //fill usedNums with 1-69
+                    usedNums.push(i);}
+            var randomNumber=null;                          //random number generated        
+            var powerballNumbers =[];                       //White Ball Numbers
+            for (i=0; i<5; i++){                                //generate 5 random non repeating numbers between 1-69 
+                randomNumber = usedNums[Math.floor(Math.random() * usedNums.length)]
+                usedNums.splice ((usedNums.indexOf(randomNumber)), 1);
+                powerballNumbers.push(randomNumber);}
+
+            //Display Powerball Numbers to Screen
+            $("#lottery1").text (powerballNumbers[0]);
+            $("#lottery2").text (powerballNumbers[1]);
+            $("#lottery3").text (powerballNumbers[2]);
+            $("#lottery4").text (powerballNumbers[3]);
+            $("#lottery5").text (powerballNumbers[4]);
+            $("#lottery6").text (redBall);}
+
+        //run Powerball Generator when page is loaded
+        powerball();
+
+        //Resets PowerBall Generator when button is clicked
+        $("#powerballReset").click(function(){
+            powerball();
+        });
+
+            
+        /////////////////////////////////////////////////////
+        //                 Mega Millions                   //    
+        /////////////////////////////////////////////////////
+
+
+        //generate a powerball number
+        function megaMillions(){
+            
+            var redBall = Math.floor(Math.random() * 25)+1; //Red Ball
+            
+            var usedNums =[];                               //previous numbers to make sure number is not repeated
+                for (var i = 1; i <= 70; i++) {                 //fill usedNums with 1-69
+                    usedNums.push(i);}
+            var randomNumber=null;                          //random number generated        
+            var megaMillionsNumbers =[];                    //White Ball Numbers
+            for (i=0; i<5; i++){                            //generate 5 random non repeating numbers between 1-69 
+                randomNumber = usedNums[Math.floor(Math.random() * usedNums.length)]
+                usedNums.splice ((usedNums.indexOf(randomNumber)), 1);
+                megaMillionsNumbers.push(randomNumber);}
+
+            //Display Numbers to Screen
+            $("#mega1").text (megaMillionsNumbers[0]);
+            $("#mega2").text (megaMillionsNumbers[1]);
+            $("#mega3").text (megaMillionsNumbers[2]);
+            $("#mega4").text (megaMillionsNumbers[3]);
+            $("#mega5").text (megaMillionsNumbers[4]);
+            $("#mega6").text (redBall);}   
+    
+        //run Powerball Generator when page is loaded
+        megaMillions();
+
+        //Resets PowerBall Generator when button is clicked
+        $("#megaReset").click(function(){
+            megaMillions();
+        });
+    
+    </script>
+</body>
+</html>
